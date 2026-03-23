@@ -1,0 +1,178 @@
+p {
+    width: 100%;
+    height: 100%;
+    font-size: 34px;
+    color: rgba(0, 0, 0, 0.341);
+    text-align: center;
+    animation: couleurChange 1s infinite alternate;
+    background-color: rgb(255, 255, 255);
+    
+
+animation-name: couleurChange; /*renseigner ici le nom de l'anim*/
+animation-duration: 3s; /*durée totale d'une itération de l'animation en seconde*/
+
+    transform: translate(
+        calc(-10px + 20px * var(--x)), 
+        calc(-10px + 20px * var(--y))
+    );
+}
+
+
+@keyframes couleurChange {
+    0%   { background-color: rgb(255, 135, 135); }
+    20%  { background-color: rgb(235, 36, 36); }
+    80%  { background-color: rgb(255, 48, 48); }
+    100% { background-color: rgb(145, 4, 4); }
+}
+
+p:nth-child(odd) {
+    --x: 0.5;
+    --y: 0.8;
+}
+p:nth-child(even) {
+    --x: 0.2;
+    --y: 0.3;
+}
+
+header {
+  opacity: 100%;
+  font-family : "Fifties Movies";
+  position: absolute;
+  width: 250vw;
+  background-color: rgb(255, 255, 255);
+  padding: 3px;
+  z-index: 10;
+}
+
+
+@font-face {
+    font-family: "PinyonScript-Regular";
+    src: url("../js/PinyonScript-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.grand {
+    font-family: "PinyonScript-Regular", cursive, sans-serif;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    grid-row: span 3;
+    grid-column: span 3;
+}
+
+@font-face {
+    font-family: "Basteleur-Moonlight";
+    src: url("../js/Basteleur-Moonlight.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.petit {
+    font-family: "Basteleur-Moonlight", cursive, sans-serif;
+    font-size: 20px;
+    color: rgb(255, 230, 0);
+    grid-row: span 3;
+    grid-column: span 3;
+    /* background-image: url(../points_blancs.jpg); */
+}
+
+
+
+@font-face {
+    font-family: "Basteleur-Bold";
+    src: url("../js/Basteleur-Bold.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.moyen {
+    font-family: "Basteleur-Bold", cursive, sans-serif;
+    font-size: 15px;
+    color: rgb(124, 1, 1);
+    grid-row: span 3;
+    grid-column: span 3;
+}
+
+body {
+    width: 50px;
+    display: grid;
+    grid-template-columns: repeat(90, 5px);
+    gap: 20px;
+    grid-auto-rows: 90px;
+    background-color: rgb(193, 0, 0);
+    position: relative;
+    overflow: hidden;
+
+    }
+
+@keyframes glissement {
+    0% { 
+        transform: translate(-100px, 0); 
+    }
+    30% { 
+        transform: translate(0, 0); 
+    }
+    80% { 
+        transform: translate(100px, 0); 
+    }
+}
+
+.petit {
+   
+    animation: glissement 3s infinite alternate ease-in-out;
+}
+
+
+.image-flottante:nth-of-type(1) {
+    position: absolute; 
+    width: 80px;        
+    z-index: 999;      
+    pointer-events: none;
+    animation: glissement 3s infinite alternate ease-in-out;
+}
+
+
+@keyframes fondChange {
+    5%   { background-color: rgb(255, 118, 118); }
+    33%  { background-color: rgb(0, 0, 0); }  
+    66%  { background-color: rgb(255, 44, 44); }
+    90% { background-color: rgb(255, 131, 106); }
+}
+
+body {
+    width: 100vw; 
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(90, 5px);
+    gap: 15px;
+    grid-auto-rows: 90px;
+    position: relative;
+    overflow-x: hidden;
+    
+    animation: fondChange 8s infinite ease-in-out;
+   overflow: hidden;
+
+}
+
+
+
+#points{
+     display: grid;
+    grid-template-columns: repeat(90, 5px);
+    gap: 20px;
+    grid-auto-rows: 90px;
+    position: absolute;
+    /* background-color: yellow; */
+    width: 100vw;
+    height: 100%;
+}
+
+#points > div{
+
+    grid-row: span 3;
+    grid-column: span 3;
+}
+
+.points{   
+    background-image: url('../points_blancs.jpg');
+}

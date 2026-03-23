@@ -1,0 +1,169 @@
+p {
+    width: 100%;
+    height: 100%;
+    font-size: 34px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    /* background-color: rgb(255, 255, 20); */
+    
+    transform: translate(
+        calc(-10px + 20px * var(--x)), 
+        calc(-10px + 20px * var(--y))
+    );
+}
+
+p:nth-child(odd) {
+    --x: 0.5;
+    --y: 0.8;
+}
+p:nth-child(even) {
+    --x: 0.2;
+    --y: 0.3;
+}
+
+header {
+  opacity: 100%;
+  font-family : "Fifties Movies";
+  position: absolute;
+  width: 250vw;
+  background-color: rgb(255, 255, 255);
+  padding: 3px;
+  z-index: 10;
+}
+
+
+@font-face {
+    font-family: "Lithops-Regular";
+    src: url("../js/Lithops-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.grand {
+    font-family: "Lithops-Regular", cursive, sans-serif;
+    font-size: 150px;
+    color: rgba(1, 122, 62, 0.532);
+    grid-row: span 1;
+    grid-column: span 3;
+}
+
+
+
+
+@font-face {
+    font-family: "old-monk";
+    src: url("../js/old-monk.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@keyframes pulsePetitMove {
+  0%   { opacity: 0.2; transform: translate(0px, 0px); }
+  25%  { opacity: 0.6; transform: translate(5px, -5px); }
+  50%  { opacity: 1; transform: translate(10px, 0px); }
+  75%  { opacity: 0.6; transform: translate(5px, 5px); }
+  100% { opacity: 0.2; transform: translate(0px, 0px); }
+}
+
+
+.petit {
+    font-family: "old-monk", cursive, sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    grid-row: span 3;
+    grid-column: span 3;
+
+    animation: pulsePetitMove 6s infinite ease-in-out;
+}
+
+
+.petit:nth-of-type(odd) {
+  animation-delay: 1s;
+}
+
+.petit:nth-of-type(even) {
+  animation-delay: 3s;
+}
+
+
+
+
+
+
+@keyframes opacitePulse {
+  0%   { opacity: 0; transform: translateY(0px); }
+  50%  { opacity: 1; transform: translateY(-5px); }
+  100% { opacity: 0; transform: translateY(0px); }
+}
+
+.moyen {
+    font-family: "Lithops-Regular", cursive, sans-serif;
+    font-size: 67px;
+    color: rgb(250, 111, 255);
+    grid-row: span 3;
+    grid-column: span 3;
+
+    animation: opacitePulse 6s infinite ease-in-out;
+}
+
+.moyen:nth-child(odd) {
+  animation-delay: 3s;
+}
+
+.moyen:nth-child(even) {
+  animation-delay: 5s;
+}
+
+
+
+
+
+
+body {
+    width: 50px;
+    display: grid;
+    grid-template-columns: repeat(90, 5px);
+    gap: 20px;
+    grid-auto-rows: 90px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+
+    }
+
+
+
+#points{
+     display: grid;
+    grid-template-columns: repeat(120, 10px);
+    gap: 90px;
+    grid-auto-rows: 100px;
+    /* background-color: yellow; */
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+
+}
+
+#points > div{
+    grid-row: span 20;
+    grid-column: span 17;
+
+    background-image: 
+        linear-gradient(to right, rgba(247, 255, 130, 0.892), rgb(251, 181, 255)),
+        url('../Carreaux-Vert.jpg');
+
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+
+
+.points {   
+    background-image: url('../Carreaux-Vert.jpg');
+    background-size: 680px 1280px;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-color: white;
+}
